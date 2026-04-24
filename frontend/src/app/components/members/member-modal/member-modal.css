@@ -1,0 +1,114 @@
+dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    border: none;
+}
+
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+}
+
+.box-modal {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: #ffffff;
+    padding: 24px;
+    width: 40%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    width: 30px;
+    height: 30px;
+}
+
+.main-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.main-box label {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.main-box input {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.modal-footer {
+    margin: 40px -30px;
+    padding: 40px;
+    border-top: 1px solid #e5e7eb;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-secondary {
+    border: 1px solid #d1d5db;
+    color: gray;
+}
+
+.btn-primary {
+    background-color: #155dfc;
+    color: #fff;
+    border: 1px solid #155dfc;
+}
+
+.btn-secondary, .btn-primary {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px 20px;
+}

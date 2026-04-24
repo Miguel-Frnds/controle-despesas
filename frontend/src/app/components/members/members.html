@@ -1,0 +1,69 @@
+<header class="header-content">
+    <div class="header-box">
+        <div class="header-text">
+            <h1>Membros</h1>
+            <p>
+                {{ membersCount }} membros {{showInactive ? 'inativos' : 'ativos'}}
+            </p>
+        </div>
+        <div class="header-btn">
+            <button class="btn-add" (click)="openCreateModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-5 h-5">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5v14"></path>
+                </svg>
+                <span class="btn-text">Adicionar</span>
+            </button>
+        </div>
+    </div>
+    <div class="members-header__action">
+        <button class="members-header__inactive-btn" (click)="toggleMembersView()"> Ver Membros {{ showInactive ? 'Ativos' : 'Inativos'}}</button>
+    </div>
+</header>
+
+<main class="main-content">
+    @if (members.length > 0) {
+        <div class="main-box">
+            @for (member of members; track member.id) {
+                <div class="box-content">
+                    <div class="box-text">
+                        <h3>{{ member.name }}</h3>
+                    </div>
+                    <div class="box-btns" >
+                            @if (!showInactive) {
+                                <button class="btn-edit" (click)="openEditModal(member)">
+                                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path>
+                                    </svg>
+                                </button>
+                                <button class="btn-delete" (click)="deactivateMember(member.id)">
+                                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 6h18"></path>
+                                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                                        <line x1="10" x2="10" y1="11" y2="17"></line>
+                                        <line x1="14" x2="14" y1="11" y2="17"></line>
+                                    </svg>
+                                </button>
+                            }
+                            @if (showInactive) {
+                                <button class="btn-activate" (click)="activateMember(member.id)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw w-4 h-4">
+                                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                                        <path d="M3 3v5h5"></path>
+                                    </svg>
+                                    Reativar
+                                </button>
+                                }
+                        </div>
+                </div>
+            }
+        </div>
+    }
+</main>
+
+<app-member-modal [isOpen]="showModal" [mode]="modalMode" [member]="selectedMember" (closed)="closeModal()" (saved)="loadActiveMembers()"></app-member-modal>

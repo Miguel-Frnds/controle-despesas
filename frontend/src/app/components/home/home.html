@@ -1,0 +1,108 @@
+<div class="home-container">
+    <div class="header section-block">
+        <div class="header-text">
+            <h1>Controle de Despesas</h1>
+            <p>Gestão de despesas</p>
+        </div>
+
+        <div class="calendary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon-calendar">
+                
+                <path d="M8 2v4"></path>
+                <path d="M16 2v4"></path>
+                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                <path d="M3 10h18"></path>
+            </svg>
+            <span> {{ (today | date:'MMMM yyyy')}}</span>
+        </div>
+    </div>
+    
+    <div class="summary section-block">
+        <div class="summary-text">
+            <h2>Resumo do Mês</h2>
+        </div>
+        
+        <div class="cards">
+            <div class="card-expense">
+                <div class="card-expense-text">
+                    <span>Total de Despesas</span>
+                </div>
+                
+                <div class="card-expense-bottom">
+                    <strong class="card-expense-price">{{monthTotal | currency:'BRL':'symbol':'1.2-2' }}</strong>
+                    <svg class="icon icon-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" x2="12" y1="2" y2="22"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="card-quantity">
+                <div class="card-quantity-text">
+                    <span>Quantidade de Despesas</span>
+                </div>
+
+                <div class="card-quantity-bottom">
+                    <strong class="card-quantity-value">{{ expenseCount }}</strong>
+                    <svg class="icon icon-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                        <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path>
+                        <path d="M12 22V12"></path>
+                        <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                        <path d="m7.5 4.27 9 5.15"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="recent-expenses section-block">
+        <div class="recent-expenses-header">
+            <h2 class="recent-expenses-text">Últimas Despesas</h2>
+            <button class="all-expenses" (click)="goToExpenses()">Ver todas</button>
+        </div>
+
+        <div class="expenses">
+            <div class="expense-item" *ngFor="let expense of expenses">
+                <div class="expense-top">
+                    <h3>{{ expense.title }}</h3>
+                    <p class="expense-price">{{ expense.total | currency:'BRL':'symbol':'1.2-2' }}</p>
+                </div>
+                <div class="expense-info">
+                <span>{{ (expense.expenseDate | date:'dd MMM')?.slice(0, -1) }}</span>
+                <span>{{ expense.category }}</span>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="create-expense">
+        <div class="button-create-expense">
+            <button class="btn-add" (click)="showModal = !showModal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-plus">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5v14"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="create-expense">
+        <div class="button-create-expense">
+            <button class="btn-add" (click)="showModal = !showModal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-plus">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5v14"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<app-expense-modal [isOpen]="showModal" [expense]="selectedExpense" (closed)="showModal = false" (saved)="loadExpenses()" />
