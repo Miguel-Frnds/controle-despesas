@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MemberService {
 
-  private apiUrl = 'http://localhost:8080/members';
+  private apiUrl = 'https://controle-despesas-th02.onrender.com/members';
 
   constructor(private http: HttpClient){}
 
