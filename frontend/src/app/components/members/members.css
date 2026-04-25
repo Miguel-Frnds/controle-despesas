@@ -1,0 +1,121 @@
+.header-content {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.header-box {
+    display: flex;
+    align-items: center;
+}
+
+.header-text h1 {
+    font-size: 30px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.header-text p {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #6a7282;
+}
+
+.header-btn {
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.btn-add svg {
+    width: 25px;
+    height: 25px;
+}
+
+.btn-add {
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #155dfc;
+    color: #fff;
+    border: 1px solid #155dfc;
+    display: flex;
+    align-items: center;
+}
+
+.btn-text {
+    padding-left: 5px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.members-header__inactive-btn {
+    color: #155dfc;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.main-box {
+    overflow: hidden;
+    padding-bottom: 100px;
+}
+
+.box-content {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.box-text {
+    font-size: 15px;
+    line-height: 27px;
+    font-weight: 500;
+    color: #6a7282;
+    min-width: 0;
+}
+
+.box-btns {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-left: auto;
+    flex-shrink: 0;
+    padding-right: 50px;
+}
+
+.btn-edit, .btn-delete {
+    border: none;
+    background: none;
+    width: 40px;
+    height: 40px;
+    color: #6a7282;
+    cursor: pointer;
+}
+
+.btn-activate {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    background: none;
+    color: #16a34a;
+    height: 40px;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.btn-activate svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}

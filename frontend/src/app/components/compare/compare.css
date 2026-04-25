@@ -1,0 +1,258 @@
+html, body {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.header-content {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.header-box h1 {
+    font-size: 30px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.header-box p {
+    font-size: 16px;
+    line-height: 10px;
+    font-weight: 400;
+    color: gray;
+}
+
+.compare-periods-container {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.compare-calendary {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    gap: 16px;
+}
+
+.compare-text {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.compare-months {
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 500;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.compare-months select {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.compare-year {
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 500;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.compare-year select {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.btn-compare {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #155dfc;
+    color: #fff;
+    border: 1px solid #155dfc;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px 16px;
+}
+
+.btn-compare svg {
+    width: 20px;
+    height: 20px;
+}
+
+.compare-periods {
+    width: fit-content;
+    cursor: pointer;
+}
+
+.compare-graph-text {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 80px 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: gray;
+}
+
+.compare-graph-text svg {
+    width: 60px;
+    height: 60px;
+    color: #D5DCE8;
+}
+
+.compare-graph-analysis, .graph-box {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.graph-box {
+    background-color: #ffffff;
+}
+
+.compare-graph-months svg, .compare-graph-analysis svg {
+    width: 25px;
+    height: 25px;
+}
+
+.compare-graph-months {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    background-color: #f0f6ff;
+}
+
+.compare-graph-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.box-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 600;
+}
+
+.box-label {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #6b7280;
+    margin-bottom: -20px;
+}
+
+.main-expense-price {
+    padding: 0 20px 0 20px;
+    margin: 0 -20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.main-expense-price p:last-child {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.main-expense-quantity p:last-child {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.graph-diff-price {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.graph-diff-quantity {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.diff-price-row, .diff-quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    margin-bottom: -20px;
+}
+
+.text-red {
+    color: #e7000b;
+}
+
+.text-blue {
+    color: #2563eb;
+}
+
+.graph-diff-quantity p:first-child, .graph-diff-price p:first-child {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #6a7282;
+    margin-bottom: -5px;
+}
+
+.compare-graph-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.compare-graph-header svg {
+    color: #155dfc;
+}

@@ -1,0 +1,82 @@
+<div class="expenses-container">
+    <div class="header">
+        <div class="header-text">
+            <div>
+                <h1>Despesas</h1>
+            </div>
+            <div>
+                <span>Total: </span>
+                <span class="month-total-value">{{ totalExpense | currency: 'BRL':'symbol':'1.2-2' }}</span>
+            </div>
+        </div>
+        <div class="header-calendary">
+            <button class="btn-left">
+                <svg class="icon left-arrow" (click)="previousMonth()" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"></path>
+                </svg>
+            </button>
+            <div class="header-calendary-text">
+                <p class="day">{{ today | date:'MMMM yyyy' }}</p>
+                <p class="quantity-expenses">{{ expensesCount }} itens</p>
+            </div>
+            <button class="btn-right">
+                <svg class="icon right-arrow" (click)="nextMonth()" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="expenses-box" (click)="openExpense(expense.id)" *ngFor="let expense of expenses">
+            <div class="expenses-box-top">
+                <h3 class="expense-title">{{ expense.title }}</h3>
+                <p class="expense-price">{{ expense.total | currency:'BRL':'symbol':'1.2-2' }}</p>
+            </div>
+            <div class="expenses-box-info">
+                <span class="date">{{ (expense.expenseDate | date:'dd MMM yyyy')?.replace(".","") }}</span>
+                <span class="dot">•</span>
+                <span class="category">{{ expense.category }}</span>
+            </div>
+            <div class="expenses-box-itens">
+                <span>{{ expense.items.length }} itens</span>
+                <div class="expenses-box-buttons">
+                    <button class="btn-edit" (click)="editExpense(expense.id); $event.stopPropagation()">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path>
+                        </svg>
+                    </button>
+                    <button class="btn-delete" (click)="deleteExpense(expense.id); $event.stopPropagation()">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18"></path>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                            <line x1="10" x2="10" y1="11" y2="17"></line>
+                            <line x1="14" x2="14" y1="11" y2="17"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="create-expense">
+        <div class="button-create-expense">
+            <button class="btn-add" (click)="openCreateModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-plus">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5v14"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<app-expense-modal [isOpen]="showModal" [expense]="selectedExpense" (closed)="closeExpenseModal()" (saved)="loadExpenses()" />
+
+<app-expense-detail-modal [isOpen]="showExpenseModal" [expense]="selectedExpense" (closed)="closeExpenseDetailModal()" />

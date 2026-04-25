@@ -1,0 +1,48 @@
+<router-outlet />
+
+<nav class="navigation">
+    <div class="nav-items">
+
+        <a routerLink="/home" routerLinkActive="active" class="nav-btn">
+            <svg class="icon icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            </svg>
+            <span>Início</span>
+        </a>
+
+        <a routerLink="/expenses" routerLinkActive="active" class="nav-btn">
+            <svg class="icon icon-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path>
+                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+                <path d="M12 17.5v-11"></path>
+            </svg>
+            <span>Despesas</span>
+        </a>
+
+        <a routerLink="/members" routerLinkActive="active" class="nav-btn">
+            <svg class="icon icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Membros</span>
+        </a>
+
+        <a routerLink="/compare" routerLinkActive="active" class="nav-btn">
+            <svg class="icon icon-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+                <path d="M18 17V9"></path>
+                <path d="M13 17V5"></path>
+                <path d="M8 17v-3"></path>
+            </svg>
+            <span>Comparar</span>
+        </a>
+
+    </div>
+</nav>

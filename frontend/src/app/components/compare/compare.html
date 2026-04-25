@@ -1,0 +1,173 @@
+<header class="header-content">
+    <div class="header-box">
+        <h1>Comparar Períodos</h1>
+        <p>Compare despesas entre diferentes meses</p>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="compare-periods-container">
+
+        <div class="period">
+            <div class="compare-text">
+                <label for="">Primeiro Período</label>
+            </div>
+            <div class="compare-calendary">
+                <div class="compare-months">
+                    <label for="">Mês</label>
+                    <select name="" id="" [(ngModel)]="month1">
+                        @for (m of months; track m) {
+                        <option [value]="m">{{ m }}</option>
+                        }
+                    </select>
+                </div>
+                <div class="compare-year">
+                    <label for="">Ano</label>
+                    <select name="" id="" [(ngModel)]="year1">
+                        @for (y of years; track y) {
+                            <option [value]="y">{{ y }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="period">
+            <div class="compare-text">
+                <label for="">Segundo Período</label>
+            </div>
+            <div class="compare-calendary">
+                <div class="compare-months">
+                    <label for="">Mês</label>
+                    <select name="" id="" [(ngModel)]="month2">
+                        @for (m of months; track m) {
+                        <option [value]="m">{{ m }}</option>
+                        }
+                    </select>
+                </div>
+                <div class="compare-year">
+                    <label for="">Ano</label>
+                    <select name="" id="" [(ngModel)]="year2">
+                        @for (y of years; track y) {
+                            <option [value]="y">{{ y }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="compare-periods">
+            <button class="btn-compare" (click)="compareMonths()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-down w-5 h-5">
+                    <path d="m21 16-4 4-4-4"></path><path d="M17 20V4"></path>
+                    <path d="m3 8 4-4 4 4"></path>
+                    <path d="M7 4v16"></path>
+                </svg>
+                Comparar Períodos
+            </button>
+        </div>
+    </div>
+
+    @if (!showGraph) {
+        <div class="compare-graph-text">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-down w-16 h-16 text-gray-300 mx-auto mb-4">
+                <path d="m21 16-4 4-4-4"></path>
+                <path d="M17 20V4"></path>
+                <path d="m3 8 4-4 4 4"></path>
+                <path d="M7 4v16"></path>
+            </svg>
+            Selecione os períodos e clique em "Comparar Períodos" para visualizar a análise
+        </div>
+    }
+
+    @if (showGraph) {
+        <div class="compare-graph-months">
+            <div class="graph-box">
+                <div class="box-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar w-5 h-5 text-blue-600">
+                        <path d="M8 2v4"></path><path d="M16 2v4"></path>
+                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                        <path d="M3 10h18"></path>
+                    </svg>
+                    <h3>{{ formatMonth(comparison?.firstMonth!) }} {{ year1}}</h3>
+                </div>
+                <div class="box-main">
+                    <div class="main-expense-price">
+                        <p class="box-label">Total de Despesas</p>
+                        <p>{{ comparison?.firstMonthTotal | currency:'BRL':'symbol':'1.2-2'}}</p>
+                    </div>
+                    <div class="main-expense-quantity">
+                        <p class="box-label">Quantidade de Despesas</p>
+                        <p>{{ comparison?.firstMonthExpenseCount }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="graph-box">
+                <div class="box-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar w-5 h-5 text-blue-600">
+                        <path d="M8 2v4"></path><path d="M16 2v4"></path>
+                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                        <path d="M3 10h18"></path>
+                    </svg>
+                    <h3>{{ formatMonth(comparison?.secondMonth!) }} {{ year2}}</h3>
+                </div>
+                <div class="box-main">
+                    <div class="main-expense-price">
+                        <p class="box-label">Total de Despesas</p>
+                        <p>{{ comparison?.secondMonthTotal | currency:'BRL':'symbol':'1.2-2'}}</p>
+                    </div>
+                    <div class="main-expense-quantity">
+                        <p class="box-label">Quantidade de Despesas</p>
+                        <p>{{ comparison?.secondMonthExpenseCount }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="compare-graph-analysis">
+            <div class="compare-graph-header">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-down w-16 h-16 text-gray-300 mx-auto mb-4">
+                    <path d="m21 16-4 4-4-4"></path>
+                    <path d="M17 20V4"></path>
+                    <path d="m3 8 4-4 4 4"></path>
+                    <path d="M7 4v16"></path>
+                </svg>
+                <h3>Análise Comparativa</h3>
+            </div>
+            <div class="compare-graph-box">
+                <div class="graph-diff-price">
+                    <p>Diferenca em Valor</p>
+                    <div class="diff-price-row">
+                        <svg [style.transform]="isIncrease() ? 'none' : 'scaleY(-1)'"
+                            [ngClass]="isIncrease() ? 'text-red' : 'text-blue'" 
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-5 h-5 text-red-600">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                            <polyline points="16 7 22 7 22 13"></polyline>
+                        </svg>
+                        <p [ngClass]="isIncrease() ? 'text-red' : 'text-blue'">{{ comparison?.difference! > 0 ? '+' : ''}} {{ comparison?.difference | currency:'BRL':'symbol':'1.2-2'}}</p>
+                    </div>
+                    <p>{{ getDifferencePercent() }}</p>
+                </div>
+                <div class="graph-diff-quantity">
+                    <p>Diferenca em Quantidade</p>
+                    <div class="diff-quantity-row">
+                        <svg [ngClass]="isIncrease() ? 'text-red' : 'text-blue'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-receipt w-5 h-5 text-gray-600">
+                            <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path>
+                            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+                            <path d="M12 17.5v-11"></path>
+                        </svg>
+                        <p [ngClass]="isIncrease() ? 'text-red' : 'text-blue'" >{{ getDiffExpense() }}</p>
+                    </div>
+                    <p>{{ getExpenseCountDiffLabel() }}</p>
+                </div>
+            </div>
+        </div>
+    }
+</main>
