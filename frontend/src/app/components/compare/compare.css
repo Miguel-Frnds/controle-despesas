@@ -256,3 +256,14 @@ html, body {
 .compare-graph-header svg {
     color: #155dfc;
 }
+
+@media (max-width: 768px) {
+    .compare-periods-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .compare-calendary {
+        grid-template-columns: 1fr 1fr;
+    }
+}

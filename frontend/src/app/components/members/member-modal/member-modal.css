@@ -112,3 +112,23 @@ dialog {
     cursor: pointer;
     padding: 10px 20px;
 }
+
+@media (max-width: 768px) {
+    .box-modal {
+        width: 90%;
+        height: auto;
+        max-height: 90vh;
+        padding: 16px;
+    }
+
+    .modal-header {
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .modal-footer {
+        margin: 20px -16px 0;
+        padding: 16px;
+    }
+}
