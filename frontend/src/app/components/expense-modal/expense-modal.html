@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label class="form-label" for="">Categoria</label>
                         <select class="form-select" [(ngModel)]="category">
-                            <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+                            <option *ngFor="let cat of categories" [value]="cat">{{ categoryLabels[cat] || cat }}</option>
                         </select>
                     </div>
 

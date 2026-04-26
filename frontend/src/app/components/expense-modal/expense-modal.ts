@@ -55,6 +55,10 @@ export class ExpenseModal implements OnChanges, OnInit{
     }
   }
 
+  categoryLabels: Record<string, string> = {
+    'FOOD': 'Alimentação'
+  };
+
   ngOnInit(): void{
     this.loadMembers();
   }
