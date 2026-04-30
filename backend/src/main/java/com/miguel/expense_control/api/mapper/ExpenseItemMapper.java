@@ -19,8 +19,7 @@ public class ExpenseItemMapper {
         return new ExpenseItemResponseDTO(
                 item.getName(),
                 item.getUnitPrice(),
-                item.getQuantity(),
-                item.getExpense().getId()
+                item.getQuantity()
         );
     }
 }
