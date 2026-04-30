@@ -18,6 +18,10 @@ export class ExpenseDetailModal {
     this.closed.emit();
   }
 
+  categoryLabels: Record<string, string> = {
+    'FOOD': 'Alimentação'
+  };
+
   get totalExpense(): number {
     if(!this.expense) return 0;
     return this.expense.items.reduce((total: number, item: any) => 

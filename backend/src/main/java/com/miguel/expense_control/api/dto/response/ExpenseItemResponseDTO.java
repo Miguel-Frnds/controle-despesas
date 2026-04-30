@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 public record ExpenseItemResponseDTO(
         String name,
         BigDecimal unitPrice,
-        Integer quantity,
-        Long expenseId
+        Integer quantity
 ) {
 }

@@ -27,7 +27,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label" for="">Categoria</label>
-                        <input disabled class="form-input" type="text" [ngModel]="expense.category">
+                        <input disabled class="form-input" type="text" [ngModel]="categoryLabels[expense.category] || expense.category">
                     </div>
 
                     <div class="form-group">

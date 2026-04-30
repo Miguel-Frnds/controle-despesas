@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
   expenses: any[] = [];
   monthTotal: number = 0;
   expenseCount: number = 0;
+  categoryLabels: Record<string, string> = {
+    'FOOD': 'Alimentação'
+  };
   today = new Date();
   showModal = false;
   selectedExpense: any = null;

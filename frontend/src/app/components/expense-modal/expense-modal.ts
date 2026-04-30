@@ -37,7 +37,13 @@ export class ExpenseModal implements OnChanges, OnInit{
             this.title = this.expense.title;
             this.expenseDate = this.expense.expenseDate;
             this.category = this.expense.category;
-            this.memberId = this.expense.memberId;
+            const member = this.activeMembers.find(
+              m => m.name === this.expense.memberName
+            );
+
+            if(member){
+              this.memberId = String(member.id);
+            }
             this.items = this.expense.items;
         } else {
             this.title = '';
@@ -48,6 +54,10 @@ export class ExpenseModal implements OnChanges, OnInit{
         }
     }
   }
+
+  categoryLabels: Record<string, string> = {
+    'FOOD': 'Alimentação'
+  };
 
   ngOnInit(): void{
     this.loadMembers();
