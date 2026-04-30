@@ -107,14 +107,24 @@ export class ExpenseModal implements OnChanges, OnInit{
     }
 
     if(this.expense) {
-      this.expenseService.editExpense(this.expense.id, expense).subscribe(() => {
-        this.saved.emit();
-        this.closed.emit();
-      });
-    } else {
-        this.expenseService.createExpense(expense).subscribe(() => {
+      this.expenseService.editExpense(this.expense.id, expense).subscribe({
+        next: () => {
           this.saved.emit();
           this.closed.emit();
+        },
+        error: (err) => {
+          alert(err.error.message);
+        }
+      });
+    } else {
+      this.expenseService.createExpense(expense).subscribe({
+        next: () => {
+          this.saved.emit();
+          this.closed.emit();
+        },
+        error: (err) => {
+          alert(err.error.message);
+        }
       });
     }
   }

@@ -33,15 +33,25 @@ export class MemberModal implements OnChanges{
 
   saveMember(){
     if(this.mode === 'create') {
-      this.memberService.saveMember(this.name).subscribe(() => {
-        this.saved.emit();
-        this.closed.emit();
-      })
+      this.memberService.saveMember(this.name).subscribe({
+        next: () => {
+          this.saved.emit();
+          this.closed.emit();
+        },
+        error: (err) => {
+          alert(err.error.message);
+        }
+      });
     } else {
-      this.memberService.editMember(this.member.id, this.name).subscribe(() => {
-        this.saved.emit();
-        this.closed.emit();
-      })
+      this.memberService.editMember(this.member.id, this.name).subscribe({
+        next: () => {
+          this.saved.emit();
+          this.closed.emit();
+        },
+        error: (err) => {
+          alert(err.error.message);
+        }
+      });
     }
   }
 
