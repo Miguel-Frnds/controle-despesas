@@ -8,8 +8,12 @@ import java.time.LocalDate;
 import java.util.List;
 
 public record ExpenseUpdateRequestDTO(
-        @Size(max = 100) String title,
-        @PastOrPresent LocalDate expenseDate,
+        @Size(max = 100, message = "O título deve ter no máximo 100 caracteres")
+        String title,
+
+        @PastOrPresent(message = "A data da despesa não pode ser no futuro")
+        LocalDate expenseDate,
+
         ExpenseCategory category,
         List<ExpenseItemCreateRequestDTO> items,
         Long memberId
